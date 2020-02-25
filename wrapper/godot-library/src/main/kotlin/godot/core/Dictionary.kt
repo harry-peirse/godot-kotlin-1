@@ -43,6 +43,8 @@ class Dictionary: CoreType {
         nativeValue = nativeValue.copy { godot_dictionary_clear(this.ptr) }
     }
 
+    fun duplicate(deep: Boolean): Dictionary = Dictionary(godot_dictionary_duplicate(nativeValue, deep))
+
     fun isEmpty(): Boolean = godot_dictionary_empty(nativeValue)
 
     override fun hashCode(): Int = godot_dictionary_hash(nativeValue)
