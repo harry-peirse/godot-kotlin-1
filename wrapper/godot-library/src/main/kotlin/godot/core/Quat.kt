@@ -271,14 +271,13 @@ class Quat: CoreType {
 
     fun setAxisAndAngle(axisAndAngle: AxisAndAngle) {
         val axis = axisAndAngle.first
-        if (!axis.isNormalized()) GD.printError("Vector $axis is not normalized", "setAxisAndAngle", "Quat.kt", 270) //TODO: Find an efficient way to get source code line number
+        if (!axis.isNormalized()) printError("Vector $axis is not normalized", "setAxisAndAngle", "Quat.kt", 270) //TODO: Find an efficient way to get source code line number
 
         val angle = axisAndAngle.second
         val d = axis.length()
         if (d == 0.0) {
             set(0.0, 0.0, 0.0, 0.0)
-        }
-        else {
+        } else {
             val sin = sin(angle * 0.5)
             val cos = cos(angle * 0.5)
             val s = sin / d

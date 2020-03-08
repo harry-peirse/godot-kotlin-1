@@ -1,7 +1,6 @@
 package godot.samples.games.fastFinish
 
 import godot.*
-import godot.core.*
 import org.godotengine.kotlin.annotation.RegisterClass
 import org.godotengine.kotlin.annotation.RegisterFunction
 
@@ -36,7 +35,7 @@ class Player : Area2D() {
         path.offset += velocity * delta * speed
 
         if (path.offset > 5100) {
-            GD.print("END")
+            print("END")
             setProcess(false)
         }
     }

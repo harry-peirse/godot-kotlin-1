@@ -1,8 +1,8 @@
 @file:Suppress("unused", "MemberVisibilityCanBePrivate")
 package godot.core
 
+import godot.gdnative.godot_basis
 import kotlinx.cinterop.*
-import godot.gdnative.*
 import kotlin.math.*
 
 
@@ -156,7 +156,7 @@ class Basis: CoreType {
 
 
         if (det == 0.0) {
-            GD.printError("determinant = 0", "invert", "Basis.kt", 138)
+            printError("determinant = 0", "invert", "Basis.kt", 138)
             return
         }
 
@@ -478,7 +478,7 @@ class Basis: CoreType {
 
     fun orthonormalize() {
         if (determinant() == 0.0) {
-            GD.printError("determinant == 0\n", "orthonormalize()", "Basis.kt", 464)
+            printError("determinant == 0\n", "orthonormalize()", "Basis.kt", 464)
             return
         }
 
@@ -626,7 +626,7 @@ class Basis: CoreType {
 
     fun setOrthogonalIndex(index: Int) {
         if (index >= 24) {
-            GD.printError("index >= 24", "setOrthogonalIndex($index)", "Basis.kt", 616)
+            printError("index >= 24", "setOrthogonalIndex($index)", "Basis.kt", 616)
             return
         }
         val ret = orthoBases[index]

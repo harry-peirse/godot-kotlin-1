@@ -1,7 +1,9 @@
 package godot.samples.games.pong
 
-import godot.core.*
-import godot.*
+import godot.KinematicBody2D
+import godot.VisibilityNotifier2D
+import godot.core.NodePath
+import godot.core.Vector2
 import org.godotengine.kotlin.annotation.RegisterClass
 import org.godotengine.kotlin.annotation.RegisterFunction
 import org.godotengine.kotlin.annotation.RegisterProperty
@@ -29,7 +31,7 @@ class Ball: KinematicBody2D() {
         if (!collisionInfo.isNull()) {
             val normal = collisionInfo.normal
             velocity = velocity.bounce(normal)
-            GD.print("Velocity: $velocity, normal: $normal")
+            print("Velocity: $velocity, normal: $normal")
         }
     }
 }

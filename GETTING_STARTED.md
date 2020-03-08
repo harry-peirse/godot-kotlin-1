@@ -420,7 +420,7 @@ class MyNode: Node {
 
     @RegisterFunction // <- see Registration readme
     override fun _ready() {
-        GD.print("Hello Godot!")
+        print("Hello Godot!")
     }
 }
 ```

@@ -1,9 +1,9 @@
 package godot.core.coroutines
 
 import godot.Object
-import godot.core.GD
 import godot.core.Variant
 import godot.core.godotArrayOf
+import godot.core.printError
 import kotlinx.cinterop.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.Channel
@@ -32,7 +32,7 @@ class YieldContext<T> internal constructor(
                     applyResult(block())
                 }
                 catch (e: Throwable) {
-                    GD.printError(e.message.toString(), "coroutine block", owner.toString(), 0)
+                    printError(e.message.toString(), "coroutine block", owner.toString(), 0)
                     e.printStackTrace()
                     exitProcess(EXIT_FAILURE)
                 }

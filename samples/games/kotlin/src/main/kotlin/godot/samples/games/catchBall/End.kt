@@ -1,7 +1,6 @@
 package godot.samples.games.catchBall
 
-import godot.*
-import godot.core.*
+import godot.Area
 import org.godotengine.kotlin.annotation.RegisterClass
 import org.godotengine.kotlin.annotation.RegisterFunction
 
@@ -11,7 +10,7 @@ class End: Area() {
     @RegisterFunction
     override fun _process(delta: Double) {
         if(getOverlappingBodies().size() == 1)
-            GD.print("END")
+            print("END")
             setProcess(false)
     }
 }

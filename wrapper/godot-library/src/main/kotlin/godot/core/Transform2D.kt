@@ -154,7 +154,7 @@ class Transform2D: CoreType {
     fun affineInvert() {
         val det = basisDeterminant()
         if (det == 0.0) {
-            GD.printError("determinant == 0", "affineInvert()", "Transform2D.kt", 161)
+            printError("determinant == 0", "affineInvert()", "Transform2D.kt", 161)
             return
         }
         val idet = - 1.0 / det
