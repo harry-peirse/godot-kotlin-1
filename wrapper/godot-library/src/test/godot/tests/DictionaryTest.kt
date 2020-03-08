@@ -1,35 +1,37 @@
 package godot.tests
 
-import godot.core.*
+import godot.core.Dictionary
+import godot.core.Variant
+import godot.core.print
 
 
 class DictionaryTest {
     fun test() {
-        Godot.print("Testing Dictionary")
-        Godot.print("--------------------------------------")
+        print("Testing Dictionary")
+        print("--------------------------------------")
         val dict = Dictionary()
-        Godot.print("Testing isEmpty: " +
+        print("Testing isEmpty: " +
                 if (dict.isEmpty())
                     "OK"
                 else
                     "ERROR")
-        Godot.print("Testing size: " +
+        print("Testing size: " +
                 if (dict.size() == 0)
                     "OK"
                 else
                     "ERROR")
-        Godot.print("Testing values: " +
-                if (dict.values().size() == 0)
+        print("Testing values: " +
+                if (dict.values.size() == 0)
                     "OK"
                 else
                     "ERROR")
-        Godot.print("Testing has:" +
+        print("Testing has:" +
                 if (!dict.has(Variant()))
                     "OK"
                 else
                     "ERROR")
-        Godot.print("Testing toJson: " + dict.toJson())
-        Godot.print("--------------------------------------")
-        Godot.print("")
+        print("Testing toJson: " + dict.toJson())
+        print("--------------------------------------")
+        print("")
     }
 }

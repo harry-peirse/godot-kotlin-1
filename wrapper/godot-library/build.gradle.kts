@@ -20,27 +20,6 @@ java {
 }
 
 kotlin {
-    sourceSets {
-        sourceSets.create("macosMain")
-        sourceSets.create("linuxMain")
-        sourceSets.create("windowsMain")
-        sourceSets.create("androidArm64Main")
-        sourceSets.create("androidX64Main")
-        sourceSets.create("iosArm64Main")
-        sourceSets.create("iosX64Main")
-        configure(listOf(
-                sourceSets["macosMain"],
-                sourceSets["linuxMain"],
-                sourceSets["windowsMain"],
-                sourceSets["androidArm64Main"],
-                sourceSets["androidX64Main"],
-                sourceSets["iosArm64Main"],
-                sourceSets["iosX64Main"]
-        )) {
-            this.kotlin.srcDir("src/main/kotlin")
-        }
-    }
-
     val targets =
             if (project.hasProperty("platform")) {
                 when (platform) {
@@ -99,6 +78,25 @@ kotlin {
             } else {
                 System.err.println("Not a native target! TargetName: ${it.name}")
             }
+        }
+    }
+
+    sourceSets {
+        sourceSets.findByName("")
+        configure(listOf(
+                sourceSets.findByName("macosMain"),
+                sourceSets.findByName("linuxMain"),
+                sourceSets.findByName("windowsMain"),
+                sourceSets.findByName("androidArm64Main"),
+                sourceSets.findByName("androidX64Main"),
+                sourceSets.findByName("iosArm64Main"),
+                sourceSets.findByName("iosX64Main")
+        ).filterNotNull()) {
+            this.kotlin.srcDir("src/main/kotlin")
+        }
+
+        configure(sourceSets.filter { it.name.endsWith("Test") && !it.name.contains("common", true) }) {
+            this.kotlin.srcDir("src/test")
         }
     }
 }
