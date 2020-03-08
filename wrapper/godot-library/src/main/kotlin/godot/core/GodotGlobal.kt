@@ -54,8 +54,8 @@ inline fun <reified T : Any> convert(what: Variant, type: Variant.Type): T? {
     }
 }
 
-fun db2Linear(db: Float) = exp(db * 0.11512925464970228420089957273422) //from https://github.com/godotengine/godot/blob/a7f49ac9a107820a62677ee3fb49d38982a25165/core/math/math_funcs.h
-fun db2Linear(db: Double) = exp(db * 0.11512925464970228420089957273422) //from https://github.com/godotengine/godot/blob/a7f49ac9a107820a62677ee3fb49d38982a25165/core/math/math_funcs.h
+fun db2Linear(db: Float): Float = exp(db * 0.11512925464970228420089957273422).toFloat() //from https://github.com/godotengine/godot/blob/a7f49ac9a107820a62677ee3fb49d38982a25165/core/math/math_funcs.h
+fun db2Linear(db: Double): Double = exp(db * 0.11512925464970228420089957273422) //from https://github.com/godotengine/godot/blob/a7f49ac9a107820a62677ee3fb49d38982a25165/core/math/math_funcs.h
 
 fun dectime(value: Float, amount: Float, step: Float): Float { //from https://github.com/godotengine/godot/blob/c9768f15f7bb194622b9020ab2614d47ac7e63dd/modules/mono/glue/GodotSharp/GodotSharp/Core/GD.cs
     val sign = sign(value)
