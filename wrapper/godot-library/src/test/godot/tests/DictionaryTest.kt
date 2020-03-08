@@ -1,37 +1,29 @@
 package godot.tests
 
-import godot.core.Dictionary
-import godot.core.Variant
-import godot.core.print
-
-
+//TODO: implement as self assembling, executing and destructing game as godot calls cannot be tested in unit tests without a running engine
 class DictionaryTest {
-    fun test() {
-        print("Testing Dictionary")
-        print("--------------------------------------")
-        val dict = Dictionary()
-        print("Testing isEmpty: " +
-                if (dict.isEmpty())
-                    "OK"
-                else
-                    "ERROR")
-        print("Testing size: " +
-                if (dict.size() == 0)
-                    "OK"
-                else
-                    "ERROR")
-        print("Testing values: " +
-                if (dict.values.size() == 0)
-                    "OK"
-                else
-                    "ERROR")
-        print("Testing has:" +
-                if (!dict.has(Variant()))
-                    "OK"
-                else
-                    "ERROR")
-        print("Testing toJson: " + dict.toJson())
-        print("--------------------------------------")
-        print("")
-    }
+
+//    @Test
+//    fun `newly constructed dictionary should be empty`() {
+//        val dictionary = Dictionary()
+//        assertTrue(dictionary.isEmpty(), "dictionary was not empty")
+//    }
+//
+//    @Test
+//    fun `newly constructed dictionary should have a size of 0`() {
+//        val dictionary = Dictionary()
+//        assertEquals(0, dictionary.size(), "dictionary's size was not 0")
+//    }
+//
+//    @Test
+//    fun `newly constructed dictionary values size should be 0`() {
+//        val dictionary = Dictionary()
+//        assertEquals(0, dictionary.values.size(), "dictionary's values size was not 0")
+//    }
+//
+//    @Test
+//    fun `newly constructed dictionary should not have any key's`() {
+//        val dictionary = Dictionary()
+//        assertFalse (!dictionary.has(Variant()), "dictionary had a variant as key when it should not have any keys")
+//    }
 }
